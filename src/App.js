@@ -35,10 +35,10 @@ export default class App extends Component {
     let newData=this.state.data.filter(arr=>arr.data[11]==e.target.value)
     this.setState({filterdata:newData})
   }
-  handleTotalFilter=(min,max)=>{
-    let newData=this.state.data.filter(arr=>arr.data[4]>=min && arr.data[4]<=max)
-    this.setState({filterdata:newData})
-  }
+//   handleTotalFilter=(min,max)=>{
+//     let newData=this.state.data.filter(arr=>arr.data[4]>=min && arr.data[4]<=max)
+//     this.setState({filterdata:newData})
+//   }
   render() {
     return (
       <BoxContainer>
@@ -108,9 +108,9 @@ export default class App extends Component {
                 <option value="FALSE">False</option>
               </select>
             </div>
-            <div>
-              Total <InputRangeComponent handleTotalFilter={this.handleTotalFilter}/>
-            </div>
+//             <div>
+//               Total <InputRangeComponent handleTotalFilter={this.handleTotalFilter}/>
+//             </div>
            
           </div>
         <Container className="content">
