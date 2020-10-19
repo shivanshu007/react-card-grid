@@ -1,12 +1,9 @@
 import { Container } from '@material-ui/core';
 import React, { Component } from 'react'
 import SpacingGrid from './components/grid';
-import Papa from 'papaparse';
-import { CSVReader } from 'react-papaparse'
 import styled from 'styled-components'
 import FetchData from './pokeData/fetchData';
-import InputRange from './components/InputRange';
-import InputRangeComponent from './components/InputRange';
+
 
 export default class App extends Component {
   constructor(props) {
@@ -17,7 +14,7 @@ export default class App extends Component {
     }
   }
   handleData = (data) => {
-    this.setState({ data, filterdata: data })
+    this.setState({ data:data, filterdata: data })
   }
   handleType1Filter = (e) => {
     let newData = this.state.data.filter(arr => arr.data[2] == e.target.value)
@@ -47,13 +44,15 @@ export default class App extends Component {
   render() {
     return (
       <BoxContainer>
+        
         <div className="filters">
-          <p><h2>Filters</h2></p>
-          <div>
+        <img  src="/logo.png"/>
+          <p className="heading-filter">Filters</p>
+          <div className="search">
             Search Name
               <input type="text" id="search" /><input type="submit" onClick={this.handleSearch} />
           </div>
-          <div>
+          <div  className="type1">
             Type 1
               <select onChange={e => this.handleType1Filter(e)}>
               <option value="0">type 1</option>
@@ -75,7 +74,7 @@ export default class App extends Component {
               <option value="Steel">Steel</option>
             </select>
           </div>
-          <div>
+          <div className="type2">
             Type 2
               <select onChange={e => this.handleType2Filter(e)}>
               <option value="0">type 2</option>
@@ -97,7 +96,7 @@ export default class App extends Component {
               <option value="Steel">Steel</option>
             </select>
           </div>
-          <div>
+          <div className="generation">
             Generation
               <select onChange={e => this.handleGenerationFilter(e)}>
               <option value="0">Generation</option>
@@ -109,7 +108,7 @@ export default class App extends Component {
               <option value="6">6</option>
             </select>
           </div>
-          <div>
+          <div className="legendary">
             Legendary
               <select onChange={e => this.handleLegendaryFilter(e)}>
               <option value="0">Legendary</option>
@@ -143,17 +142,61 @@ const BoxContainer = styled.div`
     justify-content: space-evenly;
     font-weight: bold;
   }
+  .heading-filter{
+    font-size: xxx-large;
+    display: flex;
+    padding: 5px;
+    justify-content: space-evenly;
+    font-weight: bold;
+  }
   .filters{
-    background-color:#a2d7d5;
-    height: auto;
-    position:fixed;
-    width: 15vw;
+    background-color: #a2d7d5;
+    position: fixed;
+    width: 22%;
+    height: 100%;
     float: left;
+    img{
+      max-width:100%;
+    }
   }
   .content{
-    width:90vw;
+    width:78%;
     float:right;
     background-color:#F5E97E;
     
+  }
+  .search{
+    margin:10px 0px 10px 0px; 
+    input{
+
+    }
+  }
+  .type1{
+    margin:10px 0px 10px 0px; 
+    select{
+      margin:0px 0px 0px 14%;
+      width:50%;
+    }
+  }
+  .type2{
+    margin:10px 0px 10px 0px; 
+    select{
+      margin:0px 0px 0px 14%;
+      width:50%;
+    }
+  }
+  .legendary{
+    margin:10px 0px 10px 0px; 
+    select{
+      margin:0px 0px 0px 6%;
+      width:50%;
+    }
+  }
+  .generation{
+    margin:10px 0px 10px 0px;
+    select{
+      margin:0px 0px 0px 5%;
+      width:50%;
+    } 
   }
 `;

@@ -82,11 +82,11 @@ export default function MediaCard(props) {
 
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small" color="primary">
           Edit
         </Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }
