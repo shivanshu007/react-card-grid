@@ -19,7 +19,8 @@ class InputRangeComponent extends React.Component {
                 maxValue={700}
                 minValue={0}
                 value={this.state.value}
-                onChange={value => this.setState({ value })} />
+                onChange={value => this.setState({ value })} 
+            />
             <input type="submit" onClick={this.props.handleTotalFilter(this.state.value.min,this.state.value.max)}/>
         </>
     );
